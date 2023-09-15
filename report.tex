@@ -43,7 +43,7 @@ url=false
 \begin{center}
 	{\LARGE{A Language-based Software Engineering Approach for Cyber-Physical Swarms}} \\
 	\vspace{4mm}
-	{\large{PhD Year II -- Report}} 
+	{\large{PhD Year III -- Report}} 
 	\vspace{4mm}
 \end{center}
 \vspace{8mm}
@@ -77,57 +77,46 @@ Prof. Matteo Ferrara}
 	#1
 	}}
 \section{Introduction}
-In the last decades several research topics such as pervasive~\cite{pervasive},
- ubiquitous~\cite{weiser1999computer}, collective~\cite{abowd2016beyond}, everyware~\cite{greenfield2010everyware} computing 
- foster a vision in which thousands of computational devices, 
- ranging from smartphones, personal computers, and embedded devices,
- collaborate to build complex applications.
-%
-Given this context, in my research, I call these large-scale multi-agent systems \textit{Cyber-Physical Swarms} (CPSWs).
-%
-The name come from natural inspiration, since this large ensemble of computational devices, 
- from a global perspective, could be seen as a ``swarm'' of simple entities that, through complex interactions, 
- perform complicated collective tasks.
-%
-Moreover, the entities are \textit{cyber-physical} since they have an \textit{embodiment} in the environment, 
- namely, they have a physical counterpart with which they can sense and alter the physical world.
-%
-This vision embraces several kinds of systems, such as
- swarm robotics, ``swarms'' of people (crowds) or, in general, ``swarms'' of IoT devices.
+Over recent years, various research domains including pervasive~\cite{pervasive}, ubiquitous~\cite{weiser1999computer}, collective~\cite{abowd2016beyond}, and everyware computing~\cite{greenfield2010everyware} have been promoting a vision 
+ that encompasses a multitude of computational devices like smartphones, 
+ PCs, and embedded systems, working in unison to construct collective applications. 
+Within this backdrop, my research refers to these expansive multi-agent systems as \textit{Cyber-Physical Swarms} (CPSWs).
 
-Designing applications for CPSWs is demanding for several reasons, just to mention some:
- i) the environment to which entities belong is highly unpredictable,
- ii) the collective behaviour could have long unstable transients, and
- iii) there is no central authority that coordinates the agents. 
-%
-Nowadays, researchers are trying to handle these challenges by working 
- on the development of robust self-adaptive collective behaviour
- like the one observed in a natural environment --- so failure-resistant, efficient, and effective. 
-%
-Then, as main research goal of my PhD, I want to find a systematic methodology (models, techniques and algorithms) 
- to synthesise and deploy self-organising behaviours of predictable outcomes for CPSW.
-%
-In particular, I follow a language-based approach, where models and tools are built around
- a target programming language.
-%
-In my research, 
- I mainly leverage Aggregate Computing (AC)~\cite{beal2015aggregate} ---a novel top-down global-to-local programming model. 
-%
-I choose this language since the abstractions that it exposes
- make the development of collective application in the CPSWs scenario easier:
- the entire collective behaviour is seen as an evolution of \textit{computational fields},
- that could be manipulated with a functional and declarative approach.
-%
-Even if AC is already applied in several use cases, 
- there is the need to both explore new research directions and
- to improve the current state-of-the-art solutions in order to close the reality gap, 
- making it possible to use AC in modern distributed applications.
-%
-In this second year then, 
- I carried on research in this context, 
- both exploring new distributed algorithms and devising the research area 
- --- i.e., integrating Reinforcement Learning (RL) with AC framework. 
+The terminology draws inspiration from nature, 
+ suggesting that this extensive network of computational devices can be viewed, 
+ from a macroscopic standpoint, as a ``swarm''. 
+% 
+These swarms consist of basic units that engage in complex interactions to accomplish sophisticated collective tasks. 
+ Additionally, these units are \textit{cyber-physical}, 
+ meaning they possess a physical manifestation that allows them to interact with and modify the real world.
 
+This conceptual framework is applicable to various types of systems, 
+ including \textit{swarm robotics}, \textit{human crowds}, or more broadly, IoT device ``swarms''.
+
+Creating applications for CPSWs presents numerous challenges, such as:
+\begin{enumerate}
+\item the inherently volatile nature of the environments these entities inhabit,
+\item the potential for prolonged instability in collective behaviour, and
+\item the absence of a centralized governing body for agent coordination.
+\end{enumerate}
+
+Current research efforts are focused on devising resilient, 
+ efficient, and effective self-adaptive collective behaviors, 
+ akin to those observed in natural settings. 
+% 
+My primary objective during my PhD is to develop a systematic approach—comprising models, 
+ techniques, and algorithms—for generating and implementing self-organizing behaviours with predictable outcomes in CPSWs.
+
+Specifically, my work adopts a language-centric methodology, constructing models and tools around a chosen programming language. I
+ predominantly utilize aggregate computing (AC)~\cite{beal2015aggregate}, 
+ a groundbreaking global-to-local programming paradigm. 
+%
+I opted for this language because its abstractions simplify the development of collective applications in the context of CPSWs, treating collective behaviour as evolving \textit{computational fields} that can be manipulated functionally and declaratively.
+
+Although AC has already found applications in various contexts, 
+ there remains a need to both venture into new research avenues and enhance existing solutions. 
+ This is crucial for bridging the gap between theory and practice, enabling the use of AC in contemporary distributed applications. During my third year, I have continued to explore this research landscape, 
+ investigating new API for expressing collective behaviours and going deeper into the integration of Machine Learning techniques in the AC stack.
 \section{Research}
 \begin{figure}
 	\includegraphics[width=\textwidth]{roadmap.pdf}
