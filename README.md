@@ -1,9 +1,13 @@
-# Ph.D second year report
+# Research Summary: Final Year of PhD
 
-This report contains my report about my research works done in my second year of PhD.
+This report provides an overview of the research projects I have undertaken during the last year of my PhD program.
 
-It mainly consists in:
-- Research roadmap for Aggregate Computing with ML
-- Reinforcement Learning applied at the language-level: learn aggregate computing blocks via program sketching
-- Reinforcement Learning applied at the middleware-level: learn to reduce power consuption through local RL processes
-- Swarm-Clustering & engineering methodologies for collective applications
+## Key Areas of Focus:
+
+- **Field-Informed Reinforcement Learning**: A hybrid methodology for developing distributed controllers aimed at enhancing collective intelligence.
+  
+- **Macro-Swarm**: A high-level API designed for articulating swarm behavior through the composable manipulation of low-level behaviors.
+
+- **ScaRLIb**: A specialized library for multi-agent reinforcement learning, particularly in the context of cyber-physical systems.
+
+- **FRASP**: A distributed computational model focused on self-organizing computations.
