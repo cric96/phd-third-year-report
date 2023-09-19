@@ -1,28 +1,37 @@
-@inproceedings{scafiweb,
-  author    = {Gianluca Aguzzi and
-               Roberto Casadei and
-               Niccol{\`{o}} Maltoni and
-               Danilo Pianini and
-               Mirko Viroli},
-  editor    = {Ferruccio Damiani and
-               Ornela Dardha},
-  title     = {ScaFi-Web: {A} Web-Based Application for Field-Based Coordination
-               Programming},
-  booktitle = {Coordination Models and Languages - 23rd {IFIP} {WG} 6.1 International
-               Conference, {COORDINATION} 2021},
-  series    = {Lecture Notes in Computer Science},
-  volume    = {12717},
-  pages     = {285--299},
-  publisher = {Springer},
-  annote    = {mine},
-  year      = {2021},
-  _url       = {https://doi.org/10.1007/978-3-030-78142-2\_18},
-  doi       = {10.1007/978-3-030-78142-2\_18},
-  timestamp = {Tue, 15 Jun 2021 17:23:40 +0200},
-  _biburl    = {https://dblp.org/rec/conf/coordination/AguzziCMPV21.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org},
-  abstract  = {Field-based coordination is a model for expressing the coordination logic of large-scale adaptive systems, composing functional blocks from a global perspective. As for any coordination model, a proper toolchain must be developed to support its adoption across all development phases. Under this point of view, the ScaFi toolkit provides a coordination language (field calculus) as a DSL internal in the Scala language, a library of reusable building blocks, and an infrastructure for simulation of distributed deployments. In this work, we enrich such a toolchain by introducing ScaFi-Web, a web-based application allowing in-browser editing, execution, and visualisation of ScaFi programs. ScaFi-Web facilitates access to the ScaFi coordination technology by flattening the learning curve and simplifying configuration and requirements, thus promoting agile prototyping of field-based coordination specifications. In turn, this opens the door to easier demonstrations and experimentation, and also constitutes a stepping stone towards monitoring and control of simulated/deployed systems.}
+@InProceedings{macroswarm,
+author="Aguzzi, Gianluca
+and Casadei, Roberto
+and Viroli, Mirko",
+editor="Jongmans, Sung-Shik
+and Lopes, Ant{\'o}nia",
+title="MacroSwarm: A Field-Based Compositional Framework for Swarm Programming",
+booktitle="Coordination Models and Languages",
+year="2023",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="31--51",
+annote    = {mine},
+abstract="Swarm behaviour engineering is an area of research that seeks to investigate methods for coordinating computation and action within groups of simple agents to achieve complex global goals like collective movement, clustering, and distributed sensing. Despite recent progress in the study and engineering of swarms (of drones, robots, vehicles), there is still need for general design and implementation methods that can be used to define complex swarm coordination in a principled way. To face this need, this paper proposes a new field-based coordination approach, called MacroSwarm, to design fully composable and reusable blocks of swarm behaviour. Based on the macroprogramming approach of aggregate computing, it roots on the idea of modelling each block of swarm behaviour by a purely functional transformation of sensing fields into actuation description fields, typically including movement vectors. We showcase the potential of MacroSwarm as a framework for collective intelligence by simulation, in a variety of scenarios including flocking, morphogenesis, and collective decision-making.",
+isbn="978-3-031-35361-1"
 }
+
+@InProceedings{scarlib,
+author="Domini, Davide
+and Cavallari, Filippo
+and Aguzzi, Gianluca
+and Viroli, Mirko",
+editor="Jongmans, Sung-Shik
+and Lopes, Ant{\'o}nia",
+title="ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement Learning in Scala",
+booktitle="Coordination Models and Languages",
+year="2023",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="52--70",
+abstract="Multi Agent Reinforcement Learning (MARL) is an emerging field in machine learning where multiple agents learn, simultaneously and in a shared environment, how to optimise a global or local reward signal. MARL has gained significant interest in recent years due to its successful applications in various domains, such as robotics, IoT, and traffic control. Cooperative Many Agent Reinforcement Learning (CMARL) is a relevant subclass of MARL, where thousands of agents work together to achieve a common coordination goal.",
+isbn="978-3-031-35361-1"
+}
+
 
 @article{collectiveautonomy,
   author    = {Roberto Casadei and
@@ -281,7 +290,7 @@ environmental monitoring.},
 
 @inproceedings{rl-middleware,
   author          = {Gianluca Aguzzi and Roberto Casadei and Mirko Viroli},
-  booktitle       = {3rd IEEE International Conference on Autonomic Computing and Self-Organizing Systems - ACSOS 2022},
+  booktitle       = {4th IEEE International Conference on Autonomic Computing and Self-Organizing Systems - ACSOS 2023},
   abstract        = {Aggregate Computing is a macro-level approach
 for programming collective intelligence and self-organisation in
 distributed systems. In this paradigm, system behaviour unfolds
@@ -305,6 +314,68 @@ of aggregate computations.},
   year            = {}
 }
 
+@inproceedings{acgnn,
+  author          = {Gianluca Aguzzi and Mirko Viroli and Lukas Esterle},
+  booktitle       = {4th IEEE International Conference on Autonomic Computing and Self-Organizing Systems - ACSOS 2023, Toronto},
+  abstract        = {Coordinating a multi-agent system of intelligent
+situated agents is a traditional research problem, impacted by the
+challenges posed by the very notion of distributed intelligence.
+These problems arise from agents acquiring information locally,
+sharing their knowledge, and acting accordingly in their environment in order to achieve a common, global goal. Individual
+agents need to control how they share their knowledge in order
+to not overburden the network or other agents with unnecessary
+information. These problems are even more evident in large-scale
+collective adaptive systems, where agent interactions are necessarily proximity-based, thus making the emergence of controlled
+global collective behaviour harder.
+In this context, two main approaches have been proposed
+for creating distributed controllers out of macro-level task/goal
+descriptions: manual design, in which programmers build the
+controllers directly, and automatic design, which involves synthesizing programs using machine learning methods. In this
+paper, we consider a new hybrid approach called Field-Informed
+reinforcement learning (FIRL). We utilise manually designed
+computational fields (globally distributed data structures) to
+manage global agent coordination. Then, using Deep Q-learning
+in combination with Graph Neural Networks we enable the agents
+to learn the necessary local behaviour automatically to solve
+collective tasks, relying on those fields through local perception.
+This allows us to create distributed controllers informed by a
+collective knowledge that has been distilled during learning, but
+that uses only local information at runtime. We demonstrate the
+effectiveness of this new approach in simulated use cases where
+tracking and covering tasks for swarm robotics are successfully
+solved.},
+  title           = {Field-informed Reinforcement Learning of Collective Tasks with Graph Neural Networks},
+  year            = {2023}
+}
+@inproceedings{frasp,
+  author          = {Roberto Casadei and Francesco Dente and Gianluca Aguzzi and Danilo Pianini and Mirko Viroli},
+  booktitle       = {4th IEEE International Conference on Autonomic Computing and Self-Organizing Systems - ACSOS 2023, Toronto},
+  abstract        = {Engineering self-organising systems -- e.g., robot swarms, collectives of wearables, or distributed infrastructures -- is a notable research challenge, investigated and addressed through various kinds of approaches, e.g., automatic (such as learning-based) or manual ones. In this work, we focus on the latter, and specifically on programming language-based approaches. Our goal is to devise a declarative language for expressing self-organising behaviour able to abstract from low-level concerns (like scheduling and deployment), which can usually be optimised at the platform/middleware level. Currently, most of the state-of-the-art languages for self-organisation leverage a time-driven or proactive execution model, where devices repeatedly execute sense-compute-act rounds, which is simple to reason about but limited in terms of flexibility in scheduling and management of reactive behaviours. Motivated by this, and inspired by the functional reactive paradigm, in this work we propose a reactive self-organisation programming language that enables to decouple the program logic from its scheduling. Specifically, we implement the idea through a functional reactive implementation of aggregate programming in Scala, based on the functional reactive library Sodium. The result is a functional reactive self-organisation programming model, which maintains the same expressiveness and benefits of aggregate programming while enabling significant improvements in terms of scheduling controllability, flexibility in the sensing/actuation model, and execution efficiency.},
+  title           = {Self-Organisation Programming: A Functional Reactive Macro Approach},
+  year            = {2023}
+}
+
+@inproceedings{scafitutorial,
+  author          = {Roberto Casadei and Gianluca Aguzzi and Danilo Pianin and Mirko Viroli},
+  booktitle       = {4th IEEE International Conference on Autonomic Computing and Self-Organizing Systems - ACSOS 2023, Toronto},
+  abstract        = {Large-scale and fully distributed cyber-physical systems (CPS), such as swarm robotics or IoT systems, pose significant challenges for programming and design. These challenges
+include promoting the desired (emergent) collective behaviour,
+dealing with failures, enacting decentralised coordination, and
+deploying efficient executions. Aggregate computing is a promising approach that aims to simplify the design of such systems
+by providing a high-level abstraction for describing collective
+and self-organizing behaviors. In this tutorial, we introduce a
+toolchain that supports the development of aggregate computing
+applications, based on ScaFi (a Scala library for aggregate
+programming) and Alchemist (a simulator for CPS scenarios).
+We will showcase the toolchain by means of a series of examples,
+ranging from simple collective behaviors to more complex selfadaptive and self-organizing ones, also providing several pointers
+to research opportunities and applications in swarm robotics,
+edge-cloud ecosystems, and more.},
+  title           = {Programming (and Learning) Self-Adaptive \&
+Self-Organizing Behaviour with ScaFi: for Swarms,
+Edge-Cloud Ecosystems, and More},
+  year            = {2023}
+}
 @inproceedings{aguzzi2022towards,
   title={Towards Reinforcement Learning-based Aggregate Computing},
   author={Aguzzi, Gianluca and Casadei, Roberto and Viroli, Mirko},

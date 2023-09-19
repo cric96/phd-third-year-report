@@ -86,7 +86,7 @@ The terminology draws inspiration from nature,
  suggesting that this extensive network of computational devices can be viewed, 
  from a macroscopic standpoint, as a ``swarm''. 
 % 
-These swarms consist of basic units that engage in complex interactions to accomplish sophisticated collective tasks. 
+These swarms consist of basic units that engage in local interactions to accomplish sophisticated collective tasks. 
  Additionally, these units are \textit{cyber-physical}, 
  meaning they possess a physical manifestation that allows them to interact with and modify the real world.
 
@@ -95,13 +95,13 @@ This conceptual framework is applicable to various types of systems,
 
 Creating applications for CPSWs presents numerous challenges, such as:
 \begin{enumerate}
-\item the inherently volatile nature of the environments these entities inhabit,
-\item the potential for prolonged instability in collective behaviour, and
+\item the inherent stochasticity of the environments these entities inhabit,
+\item the problem of the controlled emergence from local to collective behaviours, and
 \item the absence of a centralized governing body for agent coordination.
 \end{enumerate}
 
 Current research efforts are focused on devising resilient, 
- efficient, and effective self-adaptive collective behaviors, 
+ efficient, and effective self-adaptive collective behaviours, 
  akin to those observed in natural settings. 
 % 
 My primary objective during my PhD is to develop a systematic approach—comprising models, 
@@ -119,148 +119,54 @@ Although AC has already found applications in various contexts,
  investigating new API for expressing collective behaviours and going deeper into the integration of Machine Learning techniques in the AC stack.
 \section{Research}
 
-This year, 
- I was mainly focused on integrating Machine Learning techniques into the Aggregate Computing stack.
-%
-This integration has several benefits, 
- including improving the adaptivity of aggregate systems, 
- and separating functional specifications (i.e., aggregate code) from non-functional ones (e.g., consumption, convergence times, ...).
-%
-In parallel to these works related to the combination of AC and RL, 
- I have also explored the development of algorithms/patterns/methodologies 
- that can be applied in the context of CPWs.
-In the following, I will describe each of the main papers that I carried on
- and I briefly summarize the main activities of my period abroad.
+In this last year, 
+ I successfully integrated machine learning methodologies into the aggregate computing framework. 
+ I pioneered a novel approach known as Field-Informed Reinforcement Learning, 
+ which synergizes deep reinforcement learning, graph neural networks, and aggregate computing to engineer robust collective behaviours. 
+ To facilitate this integration, I created ScaRLib, a specialized tool designed to streamline the implementation of multi-agent reinforcement learning scenarios where aggregate computing is involved.
+
+Concurrently, 
+ I also focused on software engineering aspects, 
+ developing a new API for swarm robotics named MacroSwarm and introducing a novel reactive paradigm called FRASP. 
+Finally, I also prepared a tutorial for ScaFi~\cite{scafi} -- the reference framework for aggregate computing -- in order to disseminate knowledge about this paradigm and its applications.
+ Detailed explanations for each of these works will follow.
 \subsection{Activities}
 \begin{itemize}
-	\item in \textit{\citefield{roadmap}{title}}~\cite{roadmap} I have drafted 
- a roadmap highlighting the possible directions to follow to combine Aggregate Computing with Machine Learning.
-%
-In the article, I present the main directions of this integration (Figure 1), which are:
-\begin{itemize}
-	\item learning aggregate programs/algorithms: designing efficient and versatile AC algorithms can be complex, 
-	therefore, it is interesting to explore whether algorithms can be learnt or synthesised given high-level functional goals.
-	
-	\item Learning execution strategy: for a given AC program or algorithm, 
-	 multiple execution strategies can be applied, 
-	 affecting aspects like the scheduling
-	 of computation rounds, 
-	 the scheduling of communications, 
-	 the retention of messages from neighbours. 
-	%
-	Novel approaches~\cite{zambonelli2021time} 
-	 adapt the execution choices at runtime 
-	 depending on factors which may include the speed of environmental change, 
-	 the energy level of a device, incentives in volunteering settings, 
-	 or the desired Quality of Service.
-	Since it is hard to design static
-	 or dynamic execution strategies able 
-	 to adequately take into account all the factors and goals, 
-	 it could be possible to let a system (and its components) 
-	 learn how to efficiently execute algorithms according 
-	 to a set of given high-level objectives.
-	
-	\item Learning Aggregate Computing deployments: a logical AC system consists of a logical network of
-	 logical devices operating following a specified execution protocol. 
-	As shown in recent work on pulverised architectures~\cite{Casadei2020}, 
-	 it turns out that different application partitioning schemas and implementations of the digital thread associated 
-	 with the aggregate system are possible, 
-	 as well as different deployments of application components onto the available Information-Communication Technology (ICT) infrastructure. 
-	In this context, ML could be injected to have 
-	 the system learns itself what is a (locally) optimal deployment 
-	 for an aggregate application.
-\end{itemize}
-\item Concerning the integration of learning in aggregate programming, the work 
- entitled \textit{\citefield{aguzzi2022towards}{title}}~\cite{aguzzi2022towards} 
- discusses the use of RL as a way to learn pieces of code 
- that may be sensitive to environmental conditions. 
-In this work, I was inspired by program sketching 
- and I use a version of Q-learning~\cite{watkins1992q} for multi-agent systems (Hysteric Q-Learning~\cite{matignon2007hysteretic})
- to handle the complex interaction between the nodes. 
+	\item
+	%\textit{\citefield{roadmap}{title}}~\cite{roadmap} 
+	\textit{Field-informed Reinforcement Learning of Collective Tasks with Graph Neural Networks} proposes a novel hybrid approach called Field-Informed Reinforcement Learning (FIRL) for coordinating multi-agent systems. 
+	FIRL combines manual and automatic design methods by utilizing computational fields for global agent coordination and employing Deep Q-Learning along with Graph Neural Networks (GNNs) for local behaviour learning. 
+	The approach allows agents to solve collective tasks like tracking and covering in swarm robotics by using only local information at runtime, thus balancing the benefits of both manual and automatic design methods. 
+	The paper demonstrates the effectiveness of FIRL through simulated use cases
+
+\item \textit{ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement Learning in Scala}~\cite{scarlib} introduces a Scala-based framework designed to support the development of Cooperative Many Agent Reinforcement Learning (CMARL) systems. 
+The framework aims to facilitate the specification of centralized training and decentralized execution in multi-agent systems. 
+It is built on top of state-of-the-art deep learning libraries and is designed to be easily extensible. 
+ScaRLib integrates with the Alchemist simulator and the ScaFi programming framework, enabling the learning of field-based coordination policies for large-scale systems. 
+The paper also provides basic demonstrations to showcase the capabilities of ScaRLib. 
  
-\item In \textit{\citefield{rl-middleware}{title}}~\cite{rl-middleware}, 
- I used RL to learn scheduling policies 
- in order to optimize consumption 
- while maintaining good responsiveness w.r.t. the collective behaviour.  
-This work can be seen as an extension of \textit{\citefield{zambonelli2021time}{title}}~\cite{zambonelli2021time} 
- in which AC itself is used to define scheduling policies. 
-With our approach, it is possible 
- to learn online the policy that can 
- maximize energy savings while maintaining low consumption.
-
-%
-\item In \textit{\citefield{swarm-clustering}{title}}~\cite{swarm-clustering}
- I explored a new clustering technique to track space-time evolving phenomena. 
-% 
-These clusters can then be used at the application level to perform 
- distributed decision-making and/or create related cluster-wise synthesise information.
-Our approach, unlike standard approaches found in literature, 
- works in a distributed and iterative manner by exploiting 
- aggregate processes -- abstraction introduced in Aggregate Computing 
- that allows concurrent collective computations.
-
-\item \textit{\citefield{domains}{title}}~\cite{domains} considers a design abstraction used to
- devise complex decentralized computation in complex collective ecosystems.
-%
-The main abstraction, called \textit{dynamic decentralization domains}, is used to
- create a region in space that opportunistically will be formed to support distributed 
- sensing and acting.
-%
-In the paper, I also show the implementation of that abstraction using Scala.
-
-\item For what concern the engineering methodologies, in \textit{\citefield{engineering}{title}}~\cite{engineering}
- I examine the issues of engineering aggregate systems, outlining a research roadmap that exemplifies
- how the automation and methodological approach could improve the current
- trial-and-error approach.
-%
-\item in \textit{\citefield{scafi-paper}{title}}~\cite{scafi-paper}, I describe ScaFi, 
- a toolkit used for Aggregate Computing written in Scala.
-ScaFi is not new, in fact, I am one of the main contributors to the software and I am the lead designer of
- ScaFi Web~\cite{aguzzi2021scafi} --- A playground used to try Aggregate Computing online.
-We made this article to make ScaFi more accessible to a broad scientific community, 
- since, currently, it is still not vastly applied in the community of collective systems.
+\item \textit{MacroSwarm: a Field-based Compositional Framework for Swarm Programming}~\cite{macroswarm} describes a framework for designing fully composable and reusable blocks of swarm behaviour. The framework is based on the macroprogramming approach of aggregate computing and focuses on field-based coordination. MacroSwarm aims to address the challenges in swarm behaviour engineering, such as the need for a general design and implementation method. It allows for the modelling of each block of swarm behaviour as a functional transformation of sensing fields into actuation fields. The paper demonstrates the potential of MacroSwarm through simulations in various scenarios including flocking, morphogenesis, and collective decision-making
+\item \textit{Self-Organisation Programming: A Functional Reactive Macro Approach} presents a new programming model that aims to decouple the program logic from the scheduling of its sub-activities in self-organizing systems. It is implemented as a Scala domain-specific language (DSL) and leverages the functional reactive library Sodium. The paper argues that FRASP maintains the expressiveness and benefits of aggregate programming while offering improvements in scheduling controllability, flexibility in the sensing/actuation model, and execution efficiency. The work also includes experimental evaluations to demonstrate the benefits of reactivity and resource usage.
 \end{itemize}
-\subsection{Period Abroad}
-In August, I started my period abroad 
- at Aarhus University under the supervision of Lukas Esterle.
-%
-During this period, I was mainly interested in applying Graph Neural Networks (GNNs)~\cite{scarselli2008graph}
- -- a neural network that works on graphs -- 
- with Aggregate Computing programs.
-%
-In particular, I used GNN to forecast 
- the state of natural phenomena tracked by agents of an aggregate system, and then, 
- using Aggregate Programming, I would like to coordinate the agent in a way 
- that they could follow the phenomena of interest.
-%
-In doing this, I applied a Centralised Training and Decentralised Execution (CTDE)~\cite{foerster2018deep} approach. 
-%
-In this way, the local features are learnt using global data, 
- and then the neural architecture can be broken down to each node of the system.
-%
-This could be done since GNN can be also seen as a local application of matrix multiplication.
-%
-This integration has a broader impact on the research of Aggregate Computing combined with Machine Learning. 
-%
-Indeed, this could be used in the work already 
- explored to extract a representation of the local state agent 
- --- that, in fact, I found particularly hard using hand-craft solutions. 
 
 \section{Talks}
 \begin{enumerate}
-	\item Towards Reinforcement Learning-based Aggregate Computing @ COORDINATION 2022, 13 - 17 June 2022, Lucca
-	\item Machine Learning for Aggregate Computing: a Research Roadmap @ DISCOLI 2022, 10 - 13 July 2022, Bologna
-	\item Addressing Collective Computations Efficiency: Towards a Platform-level Reinforcement Learning Approach @ ACSOS 2022, 19 - 23 September 2022, Online
+	\item MacroSwarm: A Field-Based Compositional Framework for Swarm Programming @ COORDINATION 2023, 19 - 23 June 2022, Lisbon
+	\item ScaRLib: A Framework for Cooperative Many Agent Deep Reinforcement Learning in Scala @ COORDINATION 2023, 19 - 23 June 2022, Lisbon
+	\item Field-informed Reinforcement Learning of Collective Tasks with Graph Neural Networks @ ACSOS 2023, 25 - 29 September 2023, Toronto
+	\item Self-Organisation Programming: A Functional Reactive Macro Approach @ ACSOS 2023, 25 - 29 September 2023, Toronto
+	\item Programming (and Learning) Self-Adaptive \& Self-Organizing Behaviour with ScaFi: for Swarms, Edge-Cloud Ecosystems, and More @ ACSOS 2023, 25 - 29 September 2023, Toronto
 \end{enumerate}
 \section{International Conference Activities}
 \begin{enumerate}
-	\item Artifact Evaluation Committee @ COORDINATION 2022
-	\item Student Volunteer @ ICDCS 2022
-	\item Student Volunteer @ ACSOS 2022
-	\item Sub-reviewer @ COORDINATION 2022
-	\item Sub-reviewer @ AAMAS 2022
-	\item Sub-reviewer @ DISCOLI 2022
-	\item Sub-reviewer @ ASE NIER 2022
+	\item Artifact Evaluation Committee @ PerCom 2023
+	\item PC Chair @ DISCOLI 2023
+	\item PC Chair @ MADTECC 2024
+	\item Reviewer @ Frontiers in Robotics and AI
+	\item Reviewer @ Hindawi
+	\item Reviewer @ Autonomous Agents and Multi-Agent Systems 
+	\item Sub-reviewer @ COORDINATION 2023
+	\item Sub-reviewer @ ACSOS 2023
 \end{enumerate}
 \section{Teaching}
 \begin{enumerate}
@@ -270,7 +176,8 @@ Indeed, this could be used in the work already
 	\item Seminar entitled ``Scala(e) to the large. Concurrent programming in Scala and relevant Frameworks'' @ PPS
 	\item Seminar entitled ``Akka: An introduction'' @ PCD
 	\item Seminar entitled ``Akka for Distributed Systems'' @ PCD
-	\item Lesson entitled "Reinforcement Learning, an introduction" @ ASAI Summer School 2023
+	\item Lesson entitled ``Reinforcement Learning, an introduction'' @ ASAI Summer School 2023
+	\item Seminar entitled ``Multi-Agent Reinforcement Learning'' @ ASAI Summer School 2023
 \end{enumerate}
 \section{Courses and School}
 
@@ -279,13 +186,10 @@ Indeed, this could be used in the work already
 	\begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 		Professor & Course & Kind & Credits & Period & Exam \\ \hline
-		Enrico Gallinucci & From Big Data to Data Platform & PhD Course & \makecell{10 hours \\ 2 proposed credits} & \makecell{January \\ 2022} & Not done \\ \hline
-		Roberto Casadei & \makecell{Engeneering Collective Intelligence} & PhD Course & \makecell{10 hours \\ 2 proposed credits} & \makecell{December \\ 2020} & Done \\ \hline
-		Marco Gori & \makecell{Towards Developmental Machine Learning} & \makecell{BISS 2022 \\ Spring School} & \makecell{10 hours \\ 4 credits } & \makecell{April \\ 2022} & Done \\ \hline
-		Massimo Villari & \makecell{From Cloud to Serverless through microelements} & \makecell{BISS 2022 \\ Spring School} & \makecell{10 hours \\ 4 credits } & \makecell{April \\ 2022} & Done \\ \hline
-		Armir Bujari & \makecell{Industry 4.0 and the Industrial Internet of Things: \\ Challenges and Enabling Technologies} & \makecell{PhD Course} & \makecell{15 hours \\ 3 credits } & \makecell{February \\ 2022} & Done \\ \hline
-		Aristides Gionis & \makecell{Opinions and conflict in social networks: \\ models, computational problems, and algorithms} & \makecell{BISS 2022 \\ Spring School} & \makecell{X} & \makecell{February \\ 2022} & Not Done \\ \hline
-		X & \makecell{MOOC \\ Introduction to Complexity \\ \href{https://www.complexityexplorer.org/courses/119-introduction-to-complexity-2021}{\textbf{MOOC}}} & \makecell{MOOC} & \makecell{15 hours \\ 3 proposed credits} & \makecell{September \\ 2022} & \makecell{Done} \\ \hline
+		CAtia Prandi & Data Visaulization for Scientist & PhD Course & \makecell{10 hours \\ 2 proposed credits} & \makecell{2023} & Done \\ \hline
+		Danilo Pianini & \makecell{DevOps meets Scientific Research} & \makecell{PhD Course} & \makecell{20 hours \\ 4 credits } & \makecell{July \\ 2023} & Done \\ \hline
+		\makecell{DeepLearn 2023 \\ Summer School} & \makecell{X} & \makecell{July \\ 2023} & Not Done \\ \hline
+		X & \makecell{MOOC \\ Introduction to Dynamical Systems and Chaos \\ \href{https://www.complexityexplorer.org/courses/166-introduction-to-dynamical-systems-and-chaos}{\textbf{MOOC}}} & \makecell{MOOC} & \makecell{15 hours \\ 3 proposed credits} & \makecell{2023} & \makecell{Done} \\ \hline
 	
 	\end{tabular}
 	}
@@ -294,27 +198,22 @@ Indeed, this could be used in the work already
 \section{Papers}
 \subsection{Published}
 \begin{itemize}
-	\item \fullcite{swarm-clustering}
-	\\{\footnotesize\textbf{Abstract:} \citefield{swarm-clustering}{abstract}}
-	\item \fullcite{aguzzi2022towards}
-	\\{\footnotesize\textbf{Abstract:} \citefield{aguzzi2022towards}{abstract}}
+	\item \fullcite{macroswarm}
+	\\{\footnotesize\textbf{Abstract:} \citefield{macroswarm}{abstract}}
+	\item \fullcite{scarlib}
+	\\{\footnotesize\textbf{Abstract:} \citefield{scarlib}{abstract}}
 \end{itemize}
 \subsection{Accepted}
 \begin{itemize}
-	\item \fullcite{scafi-paper}
-	\\{\footnotesize\textbf{Abstract:} \citefield{scafi-paper}{abstract}}
-	\item \fullcite{roadmap}
-	\\{\footnotesize\textbf{Abstract:} \citefield{roadmap}{abstract}}
-	\item \fullcite{engineering}
-	\\{\footnotesize\textbf{Abstract:} \citefield{engineering}{abstract}}
-	\item \fullcite{rl-middleware}
-	\\{\footnotesize\textbf{Abstract:} \citefield{rl-middleware}{abstract}}
+	\item \fullcite{acgnn}
+	\\{\footnotesize\textbf{Abstract:} \citefield{acgnn}{abstract}}
+	\item \fullcite{frasp}
+	\\{\footnotesize\textbf{Abstract:} \citefield{frasp}{abstract}}
+	\item \fullcite{scafitutorial}
+	\\{\footnotesize\textbf{Abstract:} \citefield{scafitutorial}{abstract}}
+	
 \end{itemize}
-\subsection{In Peer Review}
-\begin{itemize}
-	\item \fullcite{domains}
-	\\{\footnotesize\textbf{Abstract:} \citefield{domains}{abstract}}
-\end{itemize}
+
 \section{References}
 \printbibliography[heading=none]
 
