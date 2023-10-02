@@ -4,10 +4,10 @@
 \usepackage{makecell}
 \usepackage[
 backend=biber,
-style=numeric,
-citestyle=numeric,
+style=alphabetic,
 maxcitenames=10,
 maxnames=10,
+sorting=ydnt,
 %entrykey=false,
 %annotation=false,
 url=false
@@ -20,10 +20,12 @@ url=false
 \usepackage{csquotes}
 %\usepackage{natbib}
 \usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
+\DeclareBibliographyCategory{cited}
+\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
 
 \defbibcheck{mine}{\iffieldequalstr{annotation}{mine}{}{\skipentry}}
 \defbibcheck{other}{\iffieldequalstr{annotation}{other}{}{\skipentry}}
-
+\addbibresource{me.bib}
 \addbibresource{biblio.bib}
 
 \begin{document}
@@ -186,7 +188,7 @@ The paper also provides basic demonstrations to showcase the capabilities of Sca
 	\begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 		Professor & Course & Kind & Credits & Period & Exam \\ \hline
-		CAtia Prandi & Data Visaulization for Scientist & PhD Course & \makecell{10 hours \\ 2 proposed credits} & \makecell{2023} & Done \\ \hline
+		Catia Prandi & Data Visualization for Scientist & PhD Course & \makecell{10 hours \\ 2 proposed credits} & \makecell{2023} & Done \\ \hline
 		Danilo Pianini & \makecell{DevOps meets Scientific Research} & \makecell{PhD Course} & \makecell{20 hours \\ 4 credits } & \makecell{July \\ 2023} & Done \\ \hline
 		\makecell{DeepLearn 2023 \\ Summer School} & \makecell{X} & \makecell{July \\ 2023} & Not Done \\ \hline
 		X & \makecell{MOOC \\ Introduction to Dynamical Systems and Chaos \\ \href{https://www.complexityexplorer.org/courses/166-introduction-to-dynamical-systems-and-chaos}{\textbf{MOOC}}} & \makecell{MOOC} & \makecell{15 hours \\ 3 proposed credits} & \makecell{2023} & \makecell{Done} \\ \hline
@@ -211,10 +213,15 @@ The paper also provides basic demonstrations to showcase the capabilities of Sca
 	\\{\footnotesize\textbf{Abstract:} \citefield{frasp}{abstract}}
 	\item \fullcite{scafitutorial}
 	\\{\footnotesize\textbf{Abstract:} \citefield{scafitutorial}{abstract}}
-	
 \end{itemize}
-
+\section{Full publication list}
+\nocite{*}
+\subsection{Journals}
+\printbibliography[check=mine, heading=none, type=article]
+\subsection{Conference/Workshops}
+\printbibliography[check=mine, heading=none, type=inproceedings]
 \section{References}
-\printbibliography[heading=none]
+
+\printbibliography[heading=none, category=cited]
 
 \end{document}
